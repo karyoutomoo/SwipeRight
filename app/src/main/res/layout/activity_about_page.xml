@@ -8,12 +8,12 @@
     <ImageView
         android:id="@+id/itsLogo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="180dp"
         android:foregroundGravity="center"
         android:paddingTop="30dp"
         android:src="@drawable/itslogo"/>
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/itsLogo"
         android:layout_margin="15dp"
