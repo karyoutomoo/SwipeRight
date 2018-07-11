@@ -12,6 +12,8 @@ public class Article {
     String thumbnail;
     String total_views;
 
+    public Article() {
+    }
 
     public String getId() {
         return id;
@@ -93,17 +95,17 @@ public class Article {
         this.total_views = total_views;
     }
 
-//    public Artikel(String id, String slug, String title, String author_name, String author_image, String description, String date, String link, String thumbnail, String total_views) {
-//        this.id = id;
-//        this.slug = slug;
-//        this.title = title;
-//        this.author_name = author_name;
-//        this.author_image = author_image;
-//        this.description = description;
-//        this.date = date;
-//        this.link = link;
-//        this.thumbnail = thumbnail;
-//        this.total_views = total_views;
-//    }
+    public Article(String id, String slug, String title, String author_name, String author_image, String description, String date, String link, String thumbnail, String total_views) {
+        this.id = id;
+        this.slug = slug;
+        this.title = title;
+        this.author_name = author_name;
+        this.author_image = author_image;
+        this.description = description;
+        this.date = date;
+        this.link = link;
+        this.thumbnail = thumbnail;
+        this.total_views = total_views;
+    }
 
 }

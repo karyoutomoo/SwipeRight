@@ -1,4 +1,4 @@
-package com.itsjustfaiq.swiperight;
+package com.itsjustfaiq.swiperight.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
