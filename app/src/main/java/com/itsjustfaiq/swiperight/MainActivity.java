@@ -1,8 +1,10 @@
 package com.itsjustfaiq.swiperight;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -14,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     ViewPager myViewPager;
     PagerAdapter myPagerAdapter;
+    TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
         myPagerAdapter = new PagerAdapter(getSupportFragmentManager());
 
         myViewPager.setAdapter(myPagerAdapter);
+
+        tabLayout = findViewById(R.id.tLayout);
+        tabLayout.setupWithViewPager(myViewPager);
     }
 
     @Override
@@ -45,6 +51,10 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }
+        else if (id == R.id.aboutPage){
+            Intent intent = new Intent(MainActivity.this, AboutPage.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
