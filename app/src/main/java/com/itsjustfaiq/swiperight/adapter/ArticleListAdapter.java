@@ -1,6 +1,7 @@
 package com.itsjustfaiq.swiperight.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.itsjustfaiq.swiperight.DetailActivity;
 import com.itsjustfaiq.swiperight.R;
 import com.itsjustfaiq.swiperight.model.Article;
 import com.squareup.picasso.Picasso;
@@ -29,11 +31,20 @@ public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ArticleViewHolder articleViewHolder, int i) {
-        Article artikel = data.get(i);
-        articleViewHolder.tvPenulis.setText(artikel.getAuthor_name());
-        articleViewHolder.tvJudul.setText(artikel.getTitle());
+        final Article article = data.get(i);
+        articleViewHolder.tvPenulis.setText(article.getAuthor_name());
+        articleViewHolder.tvJudul.setText(article.getTitle());
 
-        Picasso.with(context).load(artikel.getThumbnail()).into(articleViewHolder.ivThumbnail);
+        Picasso.with(context).load(article.getThumbnail()).into(articleViewHolder.ivThumbnail);
+
+        articleViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goToDetailActivity = new Intent(context, DetailActivity.class);
+                goToDetailActivity.putExtra("article", article);
+                context.startActivity(goToDetailActivity);
+            }
+        });
     }
 
     @Override

@@ -4,9 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.itsjustfaiq.swiperight.fragments.Info;
-import com.itsjustfaiq.swiperight.fragments.News;
-import com.itsjustfaiq.swiperight.fragments.Tutorial;
+import com.itsjustfaiq.swiperight.fragment.Info;
+import com.itsjustfaiq.swiperight.fragment.News;
+import com.itsjustfaiq.swiperight.fragment.Tutorial;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
     public PagerAdapter(FragmentManager fm){

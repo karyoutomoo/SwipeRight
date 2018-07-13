@@ -1,6 +1,9 @@
 package com.itsjustfaiq.swiperight.model;
 
-public class Article {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Article implements Parcelable{
     String id;
     String slug;
     String title;
@@ -108,4 +111,46 @@ public class Article {
         this.total_views = total_views;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(this.id);
+        parcel.writeString(this.slug);
+        parcel.writeString(this.title);
+        parcel.writeString(this.author_name);
+        parcel.writeString(this.author_image);
+        parcel.writeString(this.description);
+        parcel.writeString(this.date);
+        parcel.writeString(this.link);
+        parcel.writeString(this.thumbnail);
+        parcel.writeString(this.total_views);
+    }
+
+    protected Article(Parcel in) {
+        this.id = in.readString();
+        this.slug = in.readString();
+        this.title = in.readString();
+        this.author_name = in.readString();
+        this.author_image = in.readString();
+        this.description = in.readString();
+        this.date = in.readString();
+        this.link = in.readString();
+        this.thumbnail = in.readString();
+        this.total_views = in.readString();
+    }
+    public static final Parcelable.Creator<Article> CREATOR = new
+            Parcelable.Creator<Article>() {
+                @Override
+                public Article createFromParcel(Parcel source) {
+                    return new Article(source);
+                }
+                @Override
+                public Article[] newArray(int size) {
+                    return new Article[size];
+                }
+            };
 }
